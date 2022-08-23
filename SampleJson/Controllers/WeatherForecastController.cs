@@ -49,10 +49,6 @@ namespace SampleJson.Controllers
         public IEnumerable<WeatherForecast> Update(int id, [FromBody] WeatherForecast data)
         {
             Summaries[id] = data.Summary;
-            WeatherForecast response = new WeatherForecast()
-            {
-                Summary = Summaries[id]
-            };
 
             return GetWeatherForecastList();
         }
