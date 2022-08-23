@@ -69,10 +69,11 @@ namespace SampleJson.Controllers
         internal IEnumerable<WeatherForecast> GetWeatherForecastList()
         {
             List<WeatherForecast> weatherForecasts = new List<WeatherForecast>();
-            foreach (var summary in Summaries)
+            for (int i = 0; i < Summaries.Count; i++)
             {
                 WeatherForecast weatherForecast = new WeatherForecast();
-                weatherForecast.Summary = summary;
+                weatherForecast.Date = DateTime.Now.AddDays(i);
+                weatherForecast.Summary = Summaries[i];
 
                 weatherForecasts.Add(weatherForecast);
             }
